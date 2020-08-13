@@ -14,7 +14,6 @@ export default function Nav() {
                     {/* <Link></Link> */}
                 </button>
             </section>
-            
         </div>
     )
 }

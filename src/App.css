@@ -6,7 +6,7 @@
 
 .logo-login {
   height: 85px;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   justify-content: space-between;
 }
@@ -25,6 +25,7 @@
 
 .login-btn {
   height: inherit;
+  background-color: white;
 }
 
 .login-btn span {
@@ -33,4 +34,78 @@
 
 #login-icon {
   height: 30px;
+}
+
+/******** HEADER ****************/
+
+.header {
+  height: 600px;
+}
+
+.header img {
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+
+.header-text {
+  font-family: 'EB Garamond', serif;
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  margin-right: 70px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/******** HOME FORMS *****************/
+
+.rg-form {
+  height: 300px;
+  /* background-color: teal; */
+}
+
+.register {
+  height: 75%;
+  margin: 15px 10%;
+  background-color: #C4C4C4;
+  position: relative;
+  top: 7%;
+  padding: 30px;
+}
+
+.search-box {
+  height: 300px;
+  /* background-color: tomato; */
+}
+
+.search {
+  height: 75%;
+  margin: 15px 10%;
+  background-color: #C4C4C4;
+  position: relative;
+  top: 7%;
+  padding: 30px;
+}
+
+.search p {
+  margin: 0 0 30px;
+}
+
+#title-form {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4em;
+}
+
+.div-register-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-searchbar {
+  display: flex;
+  justify-content: center;
 }
