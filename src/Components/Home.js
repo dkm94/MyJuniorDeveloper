@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from "./Nav-logo";
 import Header from "./Home-header";
 import HomeForm from "./Home-forms";
 class Home extends React.Component {
@@ -14,7 +13,6 @@ class Home extends React.Component {
 
         return(
             <div classname="home">
-               <Nav />
                <Header />
                 <HomeForm />
             </div>
