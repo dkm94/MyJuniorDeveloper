@@ -5,21 +5,27 @@ class Profile extends React.Component {
         return (
             <div className="profile">
 
-                <section className="profile-header">
+                <section className="profile-header container-fluid">
                     <img alt="bg-profile"></img>
                 </section>
 
-                <div className="profile-picture">
-                    <img alt="pp"></img>
-                </div>
+           
+                    <div className="profile-picture">
+                            <img alt="pp"></img>
+                            {/* <p>coucou</p> */}
+                    </div>
+               
 
-                <section className="presentation">
-                    <div className="name">
-                        <p></p>
+                <section className="presentation container">
+                    <div className="name-job">
+                        <div className="name">
+                            <p>Nom Prénom</p>
+                        </div>
+                        <div className="job">
+                            <p>Titre du/des poste(s) visé(s)</p>
+                        </div>
                     </div>
-                    <div className="job">
-                        <p></p>
-                    </div>
+                    
                     <div className="availability">
                         <p></p>
                         <p></p>
@@ -31,7 +37,7 @@ class Profile extends React.Component {
                     </div>
                 </section>
 
-                <section className="resume">
+                <section className="resume container">
 
                     {/* <Button />
                     <Button /> */}

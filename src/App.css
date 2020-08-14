@@ -109,3 +109,58 @@
   display: flex;
   justify-content: center;
 }
+
+/* PROFILE */
+
+.profile-header {
+  height: 300px;
+  background: black;
+}
+
+/* .profile-picture {
+  position: absolute;
+  top: 278px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100px;
+  border-radius: 50%;
+  height: 16em;
+  width: 16em;
+  background-color: lightgreen;
+  border: solid 3px red;
+} */
+
+.profile-picture {
+  position: relative;
+  bottom: 103px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100px;
+  border-radius: 50%;
+  height: 16em;
+  width: 16em;
+  background-color: lightgreen;
+  border: solid 3px red;
+}
+
+.name p {
+  font-size: 3.5em;
+  border: solid red;
+  padding: 10px;
+}
+
+.job p {
+  font-size: 2em;
+}
+
+.name-job {
+  /* width: fit-content; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
