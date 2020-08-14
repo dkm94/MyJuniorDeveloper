@@ -113,13 +113,14 @@
 /* PROFILE */
 
 .profile-header {
-  height: 300px;
-  background: black;
+  min-height: 300px;
+  background: lightgray;
+  display: flex;
 }
 
 /* .profile-picture {
-  position: absolute;
-  top: 278px;
+  position: relative;
+  top: 11%;
   left: 0; 
   right: 0; 
   margin-left: auto; 
@@ -129,27 +130,30 @@
   height: 16em;
   width: 16em;
   background-color: lightgreen;
-  border: solid 3px red;
+  border: solid 3px darkred;
 } */
 
 .profile-picture {
-  position: relative;
-  bottom: 103px;
-  left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
-  width: 100px;
   border-radius: 50%;
   height: 16em;
   width: 16em;
   background-color: lightgreen;
-  border: solid 3px red;
+  border: solid 3px darkred;
+}
+
+.presentation {
+  padding-top: 30px;
+}
+
+.presentation div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 50px;
 }
 
 .name p {
   font-size: 3.5em;
-  border: solid red;
+  border: solid darkred;
   padding: 10px;
 }
 
@@ -163,4 +167,100 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.name-job div {
+  margin-bottom: 30px;
+}
+
+/********PROFILE BUTTONS*********/
+
+#profile-btns {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin-top: 0;
+}
+
+#profile-btns button {
+  margin-left: 5px;
+}
+
+.availability {
+  background: darkred;
+  color: white;
+  font-weight: 500;
+}
+
+.avb-list {
+  display: inline-flex;
+  list-style-type: none;
+  width: 100%;
+  margin-top: 14;
+  margin-bottom: 14px;
+}
+
+.ul-mg {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.avb-list li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/********RESUME 1********/
+
+.resume div {
+  margin-bottom: 20px;
+}
+
+.resume-1 {
+  min-height: 200px;
+  /* background: lightpink; */
+}
+
+.work-env {
+  min-height: 100px;
+  /* background: lightcoral; */
+}
+
+.tools {
+  min-height: 100px;
+  /* background: lightcoral; */
+}
+
+.key-words {
+  min-height: 100px;
+  /* background: lightcoral; */
+}
+
+/**********RESUME 2*********/
+
+.resume-2 {
+  min-height: 200px;
+  /* background: lime; */
+}
+
+.skills {
+  min-height: 200px;
+  /* background: rebeccapurple; */
+}
+
+.projects {
+  min-height: 200px;
+  /* background: rebeccapurple; */
+}
+
+/*******TOOL*****/
+
+.align-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.red-udl {
+  border-bottom: solid darkred;
 }
