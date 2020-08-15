@@ -253,12 +253,71 @@
   /* background: rebeccapurple; */
 }
 
+/************DASHBOARD**************/
+
+.db-title {
+  height: 8em;
+  background: lightgray;
+}
+
+.db-infos {
+  min-height: 200px;
+  background: crimson;
+  margin-top: 50px;
+}
+
+.db-menu {
+  /* height: 6em; */
+  background: darkslategrey;
+  margin: 15px;
+  color: white;
+}
+
+.db-menu ul {
+  /* display: flex; */
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.db-menu ul li {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.ul-menu {
+  display: flex;
+}
+
+.width-3 {
+  width: calc(100% / 3);
+}
+
+/********SECTIONS***********/
+
+.render-infos {
+  /* min-height: 200px; */
+  background: lightgreen;
+  margin: 15px;
+}
+
+.render-infos form {
+  padding: 0 15%;
+}
+
+.nb-input {
+  width: 40px;
+}
+
 /*******TOOL*****/
 
 .align-x {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.dp-flex {
+  display: flex;
 }
 
 .red-udl {
