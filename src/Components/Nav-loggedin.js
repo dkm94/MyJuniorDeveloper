@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../img/logo.png";
 import Icon from "../img/login-icon.png";
-// import Home from "./Home"
+import LoginModal from "./Login-modal";
 
-export default function Nav() {
-    return (
-        <div className="header-nav container-fluid">
-            <section className="logo-login">
+class NavLoggedin extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            visible: false
+        }
+    }
+
+    showModal = () => {
+        this.setState({
+            visible: true
+        })
+    }
+
+    hideModal = () => {
+        this.setState({
+            visible: false
+        })
+    }
+
+
+    render() {
+        return (
+            <div className="header-nav container-fluid">
+                <section className="logo-login">
                 <Link to={"/"} style={{ height: "inherit"}} ><img alt="logo" src={Logo} className="logo"/></Link>
-                <button className="btn login-btn" style={{ backgroundColor: "inherit"}} >
+                <button className="btn login-btn" style={{ backgroundColor: "inherit"}} onClick={this.showModal}>
                     <img alt="connexion" src={Icon} id="login-icon"/>
                     <span className="span-login">CONNEXION</span>
                     {/* <Link></Link> */}
                 </button>
-            </section>
-        </div>
-    )
+                </section>
+                <LoginModal visible={this.state.visible} hideModal={this.hideModal} />
+            </div>
+        )
+    }
 }
+
+
+export default NavLoggedin

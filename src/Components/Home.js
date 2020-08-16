@@ -12,7 +12,7 @@ class Home extends React.Component {
     render(){
 
         return(
-            <div classname="home">
+            <div className="home">
                <Header />
                 <HomeForm />
             </div>

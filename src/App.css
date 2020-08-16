@@ -112,6 +112,21 @@
   justify-content: center;
 }
 
+/********LOGIN-MODAL********/
+
+.login-modal {
+  position: absolute;
+  bottom: 23%;
+  left: 39%;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 16px;
+  width: 300px;
+  box-sizing: border-box;
+  margin: auto;
+  z-index: 2000;
+}
+
 /********DASHBOARD**********/
 
 .dashboard {
