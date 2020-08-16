@@ -13,16 +13,16 @@ export default class Profile extends Component {
             <div className="render-infos">
                 <form>
                     <div className="form-group row">
-                        <label className="col-sm-4 col-form-label">Nom</label>
+                        <label className="col-sm-4">Nom</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" />
+                        <input type="text" className="form-control" id="input-h"/>
                         </div>
                     </div>
 
                     <div className="form-group row">
-                        <label className="col-sm-4 col-form-label">Poste souhaité</label>
+                        <label className="col-sm-4">Poste souhaité</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" />
+                        <input type="text" className="form-control" id="input-h"/>
                         </div>
                     </div>
 
@@ -30,15 +30,15 @@ export default class Profile extends Component {
                         <div className="col-sm-4">Type de contrat</div>
                         <div className="col-sm-8">
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}} />
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Contrat de professionnalisation
-                                </label>
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                </label><br />
+                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}}/>
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Contrat d'apprentissage
-                                </label>
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" />
+                                </label><br />
+                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}} />
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Stage
                                 </label>
@@ -49,14 +49,14 @@ export default class Profile extends Component {
                     <div className="form-group row">
                         <div className="col-sm-4">Pour une durée de</div>
                         <div className="col-sm-8 dp-flex">
-                            <input type="text" className="form-control nb-input" />
+                            <input type="text" className="form-control nb-input" id="input-h" style={{ marginRight: "5px"}} />
                             <p> mois</p>
                         </div>
                     </div>
 
                     <fieldset className="form-group">
                         <div className="row">
-                        <legend className="col-form-label col-sm-4 pt-0">Disponibilité</legend>
+                        <label className="col-sm-4">Disponibilité</label>
                         <div className="col-sm-8">
                             <div className="form-check">
                             <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
@@ -66,7 +66,7 @@ export default class Profile extends Component {
                             </div>
                             <div className="form-check">
                             <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
-                            <label className="form-check-label" htmlFor="gridRadios2">
+                            <label className="form-check-label" htmlFor="gridRadios2" style={{ margin: "0 5px"}} >
                                 À partir du
                             </label>
                             <input type="date" className="form-check-input"/>
@@ -77,36 +77,36 @@ export default class Profile extends Component {
                     </fieldset>
 
                     <div className="form-group row">
-                        <label className="col-sm-4 col-form-label">Mobilité</label>
+                        <label className="col-sm-4">Mobilité</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" />
+                        <input type="text" className="form-control" id="input-h"/>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <div className="custom-file">
-                            <label className="col-sm-4 col-form-label" htmlFor="customFile">Photo de profil</label>
+                            <label className="col-sm-4" htmlFor="customFile">Photo de profil</label>
                             <div className="col-sm-8"><input type="file" className="custom-file-input" id="customFile" /></div>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <div className="custom-file">
-                            <label className="col-sm-4 col-form-label" htmlFor="customFile">Bannière</label>
+                            <label className="col-sm-4" htmlFor="customFile">Bannière</label>
                             <div className="col-sm-8"><input type="file" className="custom-file-input" id="customFile" /></div>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <div className="custom-file">
-                            <label className="col-sm-4 col-form-label" htmlFor="customFile">CV</label>
+                            <label className="col-sm-4" htmlFor="customFile">CV</label>
                             <div className="col-sm-8"><input type="file" className="custom-file-input" id="customFile" /></div>
                         </div>
                     </div>
                     
-                    <div className="form-group row">
-                        <div className="col-sm-8">
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                    <div className="form-group row flex-end">
+                        <div className="col-sm-8 flex-end">
+                        <button type="submit" className="btn">Valider</button>
                         </div>
                     </div>
                 </form>

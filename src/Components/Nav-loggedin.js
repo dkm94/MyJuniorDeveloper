@@ -8,9 +8,9 @@ export default function Nav() {
         <div className="header-nav container-fluid">
             <section className="logo-login">
                 <img alt="logo" src={Logo} className="logo"/>
-                <button className="btn login-btn">
+                <button className="btn login-btn" style={{ backgroundColor: "inherit"}} >
                     <img alt="connexion" src={Icon} id="login-icon"/>
-                    <span>CONNEXION</span>
+                    <span className="span-login">CONNEXION</span>
                     {/* <Link></Link> */}
                 </button>
             </section>
