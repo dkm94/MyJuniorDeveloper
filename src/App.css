@@ -4,7 +4,15 @@
 	font-size: 100%;
 }
 
+body {
+  font-size: 0.9rem;
+}
+
 /* HOME */
+
+.header-nav {
+  position: relative;
+}
 
 .logo-login {
   height: 85px;
@@ -41,7 +49,9 @@
 /******** HEADER ****************/
 
 .header {
-  height: 600px;
+  /* height: 600px; */
+  height: 31rem;
+  position: relative;
 }
 
 .header img {
@@ -57,7 +67,7 @@
   left: 50%;
   top: 50%;
   margin-right: 70px;
-  font-size: 1.4em;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -116,12 +126,12 @@
 
 .login-modal {
   position: absolute;
-  bottom: 23%;
-  left: 39%;
+  top: 270%;
+  left: 35%;
   background-color: white;
   border: 1px solid #ccc;
   padding: 16px;
-  width: 300px;
+  width: 20rem;
   box-sizing: border-box;
   margin: auto;
   z-index: 2000;
@@ -368,8 +378,119 @@ label {
   margin-bottom: 5px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 1024px) {
+  .header {
+    height: 20rem;
+  }
+
+  .header img {
+    object-fit: cover;
+  }
+
+  .header-text {
+    top: 36%;
+  }
+
+  .home-container {
+    display: flex;
+  }
+
+  .register {
+    margin: 0 0 0 10%;
+  }
+
+  .search {
+    margin: 0 10% 0 0;
+  }
+
+  .rg-form {
+    width: 100%;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 80%;
+  }
+
+  .rg-form {
+    height: 300px;
+    /* background-color: teal; */
+  }
+  
+  .search-box {
+    height: 300px;
+    /* background-color: tomato; */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 70%;
+  }
+
   .span-login {
     display: none;
   }
+
+  .login-modal {
+    left: 28%;
+  }
+
+  .header-text {
+    font-size: 1.1rem;
+    top: 22%
+  }
+
+  .home-container {
+    flex-direction: column;
+  }
+
+  .rg-form {
+    height: fit-content;
+    margin-top: 15px;
+  }
+
+  .search-box {
+    height: fit-content;
+    margin-top: 15px;
+  }
+
+  .register {
+    margin: 0 10%;
+    height: 15rem;
+    padding: 15px;
+  }
+
+  .search {
+    margin: 0 10%;
+    height: 15rem;
+    padding: 15px;
+  }
 }
+
+
+@media only screen and (max-width: 350px) {
+  header img {
+    opacity: 27%;
+  }
+
+  .header-text {
+    margin: 5%;
+    left: 5%;
+  }
+
+  .logo-login {
+    height: 70px;
+  }
+
+  .login-modal {
+    left: 18%;
+  }
+}
+
+

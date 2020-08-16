@@ -20,7 +20,7 @@ class HomeForm extends React.Component {
 
         return (
             <div className="home-forms container-fluid">
-                <div className="row">
+                <div className="row home-container">
                     <div className="col-sm-6 rg-form">
                         <div className="col-4 register">
                             <h2 id="title-form">Développeur</h2>
