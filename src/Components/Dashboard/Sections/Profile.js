@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Multiselect from "./Multiselect";
 
 export default class Profile extends Component {
     constructor(){
@@ -9,6 +10,7 @@ export default class Profile extends Component {
         }
     }
     render() {
+
         return (
             <div className="render-infos">
                 <form>
@@ -79,7 +81,7 @@ export default class Profile extends Component {
                     <div className="form-group row">
                         <label className="col-sm-4">Mobilité</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" id="input-h"/>
+                            <Multiselect />
                         </div>
                     </div>
 
