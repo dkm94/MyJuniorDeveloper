@@ -1,0 +1,9 @@
+h2 {
+    font-size: 1rem;
+}
+
+.groupeimg img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+}

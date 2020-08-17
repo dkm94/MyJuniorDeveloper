@@ -27,7 +27,7 @@ class Knowledge extends Component {
     
     render() {
         //rendu des langages et outils
-        const tools = this.state.toolsArray.map(el => <li>{el}</li>)
+        // const tools = this.state.toolsArray.map(el => <li>{el}</li>)
 
         return (
             <div className="render-infos">
