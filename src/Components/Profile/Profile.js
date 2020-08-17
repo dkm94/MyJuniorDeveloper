@@ -48,9 +48,9 @@ class Profile extends React.Component {
                         </div>
                         <div className="tools">
                             <div className="tools-p red-udl">
-                                <p>Technos & Outils</p>
+                                <p>Technos et Outils</p>
                             </div>
-                            {/* <TechnosEtOutils /> */}
+                            {/* {tools} */}
                         </div>
                         <div className="key-words">
                             <div className="keywords-p red-udl">

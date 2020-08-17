@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import Multiselect from "./Multiselect";
+// import Button from "../../SectionButton";
 
 export default class Profile extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             name: "Bernard",
             age: "40"
         }
     }
+
+    handleSubmit = () => {
+        // const toolsContent = this.state.toolsInput.split(','); 
+        // this.setState({ 
+        //     toolsArray: toolsContent 
+        // }); 
+    }
+
     render() {
 
         return (
@@ -106,9 +115,10 @@ export default class Profile extends Component {
                         </div>
                     </div>
                     
+                    {/* <Button submit={this.handleSubmit} /> */}
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn">Valider</button>
+                        <button type="submit" className="btn" onSubmit={this.handleSubmit}>Valider</button>
                         </div>
                     </div>
                 </form>

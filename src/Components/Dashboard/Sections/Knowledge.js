@@ -1,14 +1,34 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+// import Button from "../../SectionButton";
 
 class Knowledge extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            bla: "bou"
+            toolsInput: "",
+            toolsArray: [],
+            keywordsInput: "",
+            keywordsArray: []
         }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [ e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = () => {
+        const toolsContent = this.state.toolsInput.split(','); 
+        this.setState({ 
+            toolsArray: toolsContent 
+        }); 
     }
     
     render() {
+        //rendu des langages et outils
+        const tools = this.state.toolsArray.map(el => <li>{el}</li>)
+
         return (
             <div className="render-infos">
                <form>
@@ -39,14 +59,21 @@ class Knowledge extends Component {
                     <div className="form-group row">
                         <label className="col-sm-4">Technos et outils</label>
                         <div className="col-sm-8">
-                        <textarea className="form-control" style={{height: "100px"}} placeholder="Séparez par une virgule"/>
+                        <textarea name="toolsInput" value={this.state.toolsInput} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Séparez par une virgule"/>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <label className="col-sm-4">Mots-clés</label>
                         <div className="col-sm-8">
-                        <textarea className="form-control" style={{height: "100px"}} placeholder="Séparez par une virgule"/>
+                        <textarea name="keywordsInput" value={this.state.keywordsInput} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Séparez par une virgule"/>
+                        </div>
+                    </div>
+
+                    {/* <Button submit={this.handleSubmit} /> */}
+                    <div className="form-group row flex-end">
+                        <div className="col-sm-8 flex-end">
+                        <button type="submit" className="btn" onSubmit={this.handleSubmit}>Valider</button>
                         </div>
                     </div>
                </form>

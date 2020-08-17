@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+// import Button from "../../SectionButton";
 
 class Projects extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             visible: false
         }
@@ -15,6 +16,13 @@ class Projects extends Component {
         })
         )
 
+    }
+
+    handleSubmit = () => {
+        // const toolsContent = this.state.toolsInput.split(','); 
+        // this.setState({ 
+        //     toolsArray: toolsContent 
+        // }); 
     }
 
     render() {
@@ -30,7 +38,9 @@ class Projects extends Component {
                             <input type="text" className="form-control mg-bt-5" placeholder="Titre du projet" id="input-h"/>
                             <textarea className="form-control mg-bt-5" style={{height: "100px"}} placeholder="Description du projet"/>
                             <input type="file" className="custom-file-input mg-bt-5" id="customFile" />
-                            <div style={{ display: "flex", justifyContent: "flex-end"}}><button className="btn">Ajouter</button></div>
+                            <div style={{ display: "flex", justifyContent: "flex-end"}}><button className="btn" onSubmit={this.handleSubmit}>Ajouter</button></div>
+                            {/* <Button submit={this.handleSubmit} /> */}
+
                             
                         </div>
                     </div>
