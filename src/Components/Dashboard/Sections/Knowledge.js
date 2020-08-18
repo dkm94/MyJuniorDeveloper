@@ -5,8 +5,8 @@ class Knowledge extends Component {
     constructor(props){
         super(props)
         this.state = {
-            toolsInput: "",
-            toolsArray: [],
+            // toolsInput: "",
+            // toolsArray: [],
             keywordsInput: "",
             keywordsArray: []
         }
@@ -19,15 +19,15 @@ class Knowledge extends Component {
     }
 
     handleSubmit = () => {
-        const toolsContent = this.state.toolsInput.split(','); 
+        const keywordsContent = this.state.keywordsInput.split(','); 
         this.setState({ 
-            toolsArray: toolsContent 
+            keywordsArray: keywordsContent 
         }); 
     }
     
     render() {
-        //rendu des langages et outils
-        // const tools = this.state.toolsArray.map(el => <li>{el}</li>)
+        //rendu keywords
+        // const tools = this.state.keywordsArray.map(el => <li>{el}</li>)
 
         return (
             <div className="render-infos">
@@ -56,12 +56,12 @@ class Knowledge extends Component {
                         </div>
                     </div>
 
-                    <div className="form-group row">
+                    {/* <div className="form-group row">
                         <label className="col-sm-4">Technos et outils</label>
                         <div className="col-sm-8">
                         <textarea name="toolsInput" value={this.state.toolsInput} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Séparez par une virgule"/>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="form-group row">
                         <label className="col-sm-4">Mots-clés</label>

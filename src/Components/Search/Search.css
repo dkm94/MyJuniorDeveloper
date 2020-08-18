@@ -1,4 +1,8 @@
 h2 {
+    font-size: 1.4rem;
+}
+
+label {
     font-size: 1rem;
 }
 
@@ -6,4 +10,22 @@ h2 {
     height: inherit;
     width: 100%;
     object-fit: cover;
+}
+
+.search-results {
+    padding: 0 10%;
+}
+
+.results {
+    height: 3rem;
+    /* background: brown; */
+    border-bottom: 3px solid darkred;
+}
+
+.custom-select {
+    width: 50px;
+}
+
+.criterias-pdg {
+    padding-left: 26px;
 }
