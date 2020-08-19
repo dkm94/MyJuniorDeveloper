@@ -1,0 +1,60 @@
+.register-img {
+    height: -webkit-fill-available;
+    object-fit: cover;
+    width: 100%;
+}
+
+.registerForm {
+    display: flex;
+    justify-content: center;
+    border: 1px solid darkred;
+    padding: 20px;
+}
+
+.register-pic-sm {
+    display: none;
+}
+
+.rgt-form {
+    margin-top: 11%;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1024px) {
+    
+    .register-pic-full {
+        display: none;
+    }
+    
+    .rgt-form {
+        height: fit-content;
+        margin-top: 5%;
+    }
+    
+    .register-pic-sm {
+        display: flex;
+        height: 15rem;
+    }
+    
+    .register-pic-sm img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    
+.rgt-form {
+    height: fit-content;
+    margin-top: 7%;
+}
+
+
+.register-pic-sm img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+}

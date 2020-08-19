@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import Profile from "./Components/Profile/Profile";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Search from "./Components/Search/Search";
+import Register from "./Components/Register/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/search" component={Search} />
+          <Route path="/register" component={Register} />
         </Switch>
       </Router>
     </div>

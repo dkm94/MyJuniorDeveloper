@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,7 +27,9 @@ class HomeForm extends React.Component {
                             <h2 id="title-form">Développeur</h2>
                             <p>Crééz votre profil en ligne dès maintenant et augmentez vos chances de trouver un job.</p>
                             <div className="div-register-btn">
-                                <button className="btn">Inscrivez-vous</button>
+                                <Link to="/register">
+                                    <button className="btn">Inscrivez-vous</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
