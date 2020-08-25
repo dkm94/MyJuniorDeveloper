@@ -94,10 +94,10 @@ export default class Search extends Component {
                                                 <label className="form-check-label" htmlFor="gridCheck7">
                                                 MAC OS
                                                 </label><br />
-                                                <div style={{display: "flex"}}>
+                                                {/* <div style={{display: "flex"}}>
                                                     <input className="form-check-input" type="checkbox" id="gridCheck8" style={{ marginRight: "5px"}}/>
                                                     <input type="text" className="form-control" style={{ width: "200px"}} placeholder="Autre" id="input-h"/>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                     </div>
