@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^3.4.1",
+    "gh-pages": "^3.1.0",
     "multiselect-react-dropdown": "^1.5.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,6 +19,8 @@
     "react-scripts": "^3.4.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,5 +40,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://dkm94.github.io/MyJuniorDeveloper"
 }
