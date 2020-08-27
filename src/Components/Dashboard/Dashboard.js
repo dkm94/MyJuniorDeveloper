@@ -1,6 +1,7 @@
 import React from 'react';
 // import * as Sections from "./Sections";
 // import Home from "../Home";
+import NavLoggedin from "../Nav-loggedin";
 import Profile from "./Sections/Profile";
 import Knowledge from "./Sections/Knowledge";
 import Projects from "./Sections/Projects";
@@ -30,7 +31,9 @@ class Dashboard extends React.Component {
             section = <Profile />
 
         return(
-            <div className="dashboard">
+            <div className="section-dashboard">
+                <NavLoggedin />
+                <div className="dashboard">
                 <div className="container-fluid db-title align-x">
                     <h1>Votre Dashboard</h1>
                 </div>
@@ -47,6 +50,7 @@ class Dashboard extends React.Component {
                         {section}
                 
                 </section>
+            </div>
             </div>
         )
     }

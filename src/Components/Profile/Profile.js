@@ -1,9 +1,12 @@
 import React from 'react';
+import NavLoggedin from "../Nav-loggedin";
 
 class Profile extends React.Component {
     render() {
         return (
-            <div className="profile">
+            <div className="section-profile">
+                <NavLoggedin />
+                <div className="profile">
 
                 <section className="profile-header container-fluid">
                     <div className="name col-sm-4 align-x">
@@ -75,6 +78,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </section>
+            </div>
             </div>
         )
     }

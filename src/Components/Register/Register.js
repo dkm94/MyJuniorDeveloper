@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import laptop from "../../img/laptop-1819187_1920.jpg";
 import "./Register.css";
 import ordinateur from "../../img/business-2846221_1920.jpg";
+import NavLoggedin from '../Nav-loggedin';
 
 
 export default class Register extends Component {
     render() {
         return (
-            <div className="registerpage container" style={{ height:"35rem"}}>
+            <div className="section-register">
+                <NavLoggedin />
+                <div className="registerpage container" style={{ height:"35rem"}}>
                 <div className="row" >
                     <div className="col-sm-4 register-pic-full" >
                         <img className="register-img" src={laptop} alt="ordinateur-portable-ordinateur-mac by Markus Spiske de Pixabay" />
@@ -34,6 +37,7 @@ export default class Register extends Component {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
