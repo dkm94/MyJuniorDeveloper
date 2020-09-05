@@ -5,6 +5,12 @@ import data from "./data.json";
 export default function Selectbox() {
 
     const [options] = useState(data)
+    // const [keywords, setKeywords] = useState()
+    // useEffect(() => {
+    //     Axios.get()
+    //     .then(data => setKeywords(data))
+    // }) Pour le multiselect Keyword
+
 
     return (
         <div className="multiselect">

@@ -18,6 +18,10 @@ export default class Profile extends Component {
         // }); 
     }
 
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render() {
 
         return (
@@ -41,15 +45,15 @@ export default class Profile extends Component {
                         <div className="col-sm-4">Type de contrat</div>
                         <div className="col-sm-8">
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}} />
+                                <input className="form-check-input" type="checkbox" style={{ marginRight: "5px"}} />
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Contrat de professionnalisation
                                 </label><br />
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}}/>
+                                <input className="form-check-input" type="checkbox" style={{ marginRight: "5px"}}/>
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Contrat d'apprentissage
                                 </label><br />
-                                <input className="form-check-input" type="checkbox" id="gridCheck1" style={{ marginRight: "5px"}} />
+                                <input className="form-check-input" type="checkbox" style={{ marginRight: "5px"}} />
                                 <label className="form-check-label" htmlFor="gridCheck1">
                                 Stage
                                 </label>
@@ -70,7 +74,7 @@ export default class Profile extends Component {
                         <label className="col-sm-4">Disponibilité</label>
                         <div className="col-sm-8">
                             <div className="form-check">
-                            <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
+                            <input className="form-check-input" onChange={this.handleChange} type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
                             <label className="form-check-label" htmlFor="gridRadios1">
                                 Imméadiate
                             </label>
@@ -80,7 +84,7 @@ export default class Profile extends Component {
                             <label className="form-check-label" htmlFor="gridRadios2" style={{ margin: "0 5px"}} >
                                 À partir du
                             </label>
-                            <input type="date" className="form-check-input"/>
+                            <input type="date" name="date" className="form-check-input"/>
                             </div>
             
                         </div>
