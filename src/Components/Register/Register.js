@@ -24,11 +24,6 @@ export default class Register extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        // const newUser = {
-        //     email: this.state.email,
-        //     password: this.state.password
-        // }
-        // console.log(newUser)
         const email = this.state.email,
         password = this.state.password;
 
@@ -68,7 +63,7 @@ export default class Register extends Component {
                                     <small id="emailHelp" className="form-text text-muted">Votre mot de passe doit contenir au moins 6 caractères.</small>
                                 </div>
                                
-                                <button type="submit" className="btn btn">Submit</button>
+                                <button type="submit" className="btn btn">Créer mon compte</button>
                             </form>
                         </div>
                     </div>

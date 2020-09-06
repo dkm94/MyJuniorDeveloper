@@ -6,16 +6,8 @@ export default class Profile extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: "Bernard",
-            age: "40"
-        }
-    }
 
-    handleSubmit = () => {
-        // const toolsContent = this.state.toolsInput.split(','); 
-        // this.setState({ 
-        //     toolsArray: toolsContent 
-        // }); 
+        }
     }
 
     handleChange = (e) => {
@@ -30,14 +22,14 @@ export default class Profile extends Component {
                     <div className="form-group row">
                         <label className="col-sm-4">Nom</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" id="input-h"/>
+                        <input type="text" name="name" value={this.props.name} className="form-control" id="input-h"/>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <label className="col-sm-4">Poste souhaité</label>
                         <div className="col-sm-8">
-                        <input type="text" className="form-control" id="input-h"/>
+                        <input type="text" name="job" value={this.props.job} className="form-control" id="input-h"/>
                         </div>
                     </div>
 
@@ -64,7 +56,7 @@ export default class Profile extends Component {
                     <div className="form-group row">
                         <div className="col-sm-4">Pour une durée de</div>
                         <div className="col-sm-8 dp-flex">
-                            <input type="text" className="form-control nb-input" id="input-h" style={{ marginRight: "5px"}} />
+                            <input type="text" name="time" value={this.props.time} className="form-control nb-input" id="input-h" style={{ marginRight: "5px"}} />
                             <p> mois</p>
                         </div>
                     </div>
@@ -94,7 +86,7 @@ export default class Profile extends Component {
                     <div className="form-group row">
                         <label className="col-sm-4">Mobilité</label>
                         <div className="col-sm-8">
-                            <Multiselect />
+                            <Multiselect name="mobility" value={this.state.mobility} />
                         </div>
                     </div>
 
@@ -122,7 +114,7 @@ export default class Profile extends Component {
                     {/* <Button submit={this.handleSubmit} /> */}
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn" onSubmit={this.handleSubmit}>Valider</button>
+                        <button type="submit" className="btn" onSubmit={this.props.handleSubmit}>Valider</button>
                         </div>
                     </div>
                 </form>

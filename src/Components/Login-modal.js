@@ -19,23 +19,16 @@ class LoginModal extends Component {
         e.preventDefault();
         console.log("Register Submitted");
 
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        }
+        const email = this.state.email,
+        password = this.state.password;
 
-        axios.post('http://localhost:3050/account/login', {user})
-            .then(res => res.json())
+        axios.post('http://localhost:3050/account/login', {email, password})
             .then(res => {
-            console.log("Login OK");
-            console.log(res.data)
-            localStorage.setItem("token", res.token);
-            if (res.token) {
-                this.props.history.replace("/dashboard");
-            }
+            console.log("Register submitted");
+            this.props.history.replace("/dashboard");
             })
             .catch(err => {
-            console.log("Indentifiant invalide");
+            console.log(err);
             });
     }
     
@@ -46,7 +39,7 @@ class LoginModal extends Component {
             <div className="login-modal"
             style={{ display: this.props.visible ? "block" : "none" }}
             >
-                <button onClick={this.props.hideModal}  >X</button>
+                <button onClick={this.props.hideModal}>X</button>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>

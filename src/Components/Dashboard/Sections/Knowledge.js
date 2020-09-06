@@ -5,7 +5,7 @@ class Knowledge extends Component {
     constructor(props){
         super(props)
         this.state = {
-            keywordsInput: "",
+            keywords: "",
             keywordsArray: [],
             system: []
         }
@@ -15,13 +15,6 @@ class Knowledge extends Component {
         this.setState({
             [ e.target.name]: e.target.value
         })
-    }
-
-    handleSubmit = () => {
-        const keywordsContent = this.state.keywordsInput.split(','); 
-        this.setState({ 
-            keywordsArray: keywordsContent 
-        }); 
     }
 
     checkedSystem = (e) => {
@@ -62,14 +55,14 @@ class Knowledge extends Component {
                     <div className="form-group row">
                         <label className="col-sm-4">Langages/Outils/Compétences</label>
                         <div className="col-sm-8">
-                        <textarea name="keywordsInput" value={this.state.keywordsInput} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Exemple: Javascript, Intégration, Responsive design...(Séparez par une virgule)"/>
+                        <textarea name="keywords" value={this.props.keywords} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Exemple: Javascript, Intégration, Responsive design...(Séparez par une virgule)"/>
                         </div>
                     </div>
 
                     {/* <Button submit={this.handleSubmit} /> */}
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn" onSubmit={this.handleSubmit}>Valider</button>
+                        <button type="submit" className="btn" onSubmit={this.props.handleSubmit}>Valider</button>
                         </div>
                     </div>
                </form>
