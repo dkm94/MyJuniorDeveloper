@@ -12,6 +12,22 @@ class Projects extends Component {
         }
     }
 
+    componentWillReceiveProps(newProps) {
+        console.log("NewProps:", newProps)
+    }
+
+    shouldComponentUpdate(newProps, newState) {
+        console.log("NewProps:", newProps);
+        console.log("NewState:", newState);
+        return true
+    }
+
+    getInputValue = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        this.props.handleChange(fieldName, fieldValue);
+    }
+
     showForm = () => {
 
         this.setState(prevState => ({
@@ -19,12 +35,6 @@ class Projects extends Component {
         })
         )
 
-    }
-
-    handleChange = (e) => {
-        this.setState({
-            [ e.target.name]: e.target.value
-        })
     }
 
 
@@ -39,15 +49,14 @@ class Projects extends Component {
 
                 <div className="form-group row new-project" visible={this.state.visible} style={{display: this.state.visible ? 'flex' : 'none'}}>
                     <div className="custom-file align-x" style={{ width: "100%"}}>
-                        <div className="col-sm-8">
-                            <input type="text" name="title" value={this.state.title} className="form-control mg-bt-5" placeholder="Titre du projet" id="input-h"/>
-                            <textarea className="form-control mg-bt-5" name="description" value={this.state.description} style={{height: "100px"}} placeholder="Description du projet"/>
-                            <input type="file" className="custom-file-input mg-bt-5" name="media" value={this.state.media} id="customFile" />
-                            <div style={{ display: "flex", justifyContent: "flex-end"}}><button className="btn" onSubmit={this.props.handleSubmit}>Ajouter</button></div>
-                            {/* <Button submit={this.handleSubmit} /> */}
+                        <form className="col-sm-8" onSubmit={this.props.handleSubmit}>
+                            <input type="text" name="title" value={this.state.title} className="form-control mg-bt-5" placeholder="Titre du projet" id="input-h" onChange={this.getInputValue}/>
+                            <textarea className="form-control mg-bt-5" name="description" value={this.state.description} style={{height: "100px"}} placeholder="Description du projet" onChange={this.getInputValue}/>
+                            <input type="file" className="custom-file-input mg-bt-5" name="media" value={this.state.media} id="customFile" onChange={this.getInputValue} />
+                            <div style={{ display: "flex", justifyContent: "flex-end"}}><button className="btn">Ajouter</button></div>
 
                             
-                        </div>
+                        </form>
                     </div>
                 </div>
 

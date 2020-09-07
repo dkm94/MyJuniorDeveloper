@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import decode from "jwt-decode";
 
 class LoginModal extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             email: "",
             password: ""
@@ -24,14 +26,17 @@ class LoginModal extends Component {
 
         axios.post('http://localhost:3050/account/login', {email, password})
             .then(res => {
-            console.log("Register submitted");
-            this.props.history.replace("/dashboard");
-            })
+                if (res.status === 200) {
+                    console.log("Registering OK", res.data);
+                    localStorage.setItem("token", res.data.token);
+                    this.props.history.replace('/dashboard');
+                } else
+                    return res.status(400).json("Identifiants invalides.")
             .catch(err => {
             console.log(err);
             });
-    }
-    
+    })
+}
 
     render() {
 
@@ -58,4 +63,4 @@ class LoginModal extends Component {
     }
 }
 
-export default LoginModal
+export default withRouter (LoginModal)

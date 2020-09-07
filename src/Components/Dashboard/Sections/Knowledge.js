@@ -11,10 +11,20 @@ class Knowledge extends Component {
         }
     }
 
-    handleChange = (e) => {
-        this.setState({
-            [ e.target.name]: e.target.value
-        })
+    componentWillReceiveProps(newProps) {
+        console.log("NewProps:", newProps)
+    }
+
+    shouldComponentUpdate(newProps, newState) {
+        console.log("NewProps:", newProps);
+        console.log("NewState:", newState);
+        return true
+    }
+
+    getInputValue = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        this.props.handleChange(fieldName, fieldValue);
     }
 
     checkedSystem = (e) => {
@@ -31,7 +41,7 @@ class Knowledge extends Component {
         return (
             <div className="render-infos">
                <form>
-                    <div className="form-group row">
+                    {/* <div className="form-group row">
                         <div className="col-sm-4"><label>Environnement de travail</label></div>
                         <div className="col-sm-8">
                             <div className="form-check">
@@ -50,12 +60,12 @@ class Knowledge extends Component {
                                
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="form-group row">
                         <label className="col-sm-4">Langages/Outils/Compétences</label>
                         <div className="col-sm-8">
-                        <textarea name="keywords" value={this.props.keywords} onChange={this.handleChange} className="form-control" style={{height: "100px"}} placeholder="Exemple: Javascript, Intégration, Responsive design...(Séparez par une virgule)"/>
+                        <textarea name="keywords" value={this.props.keywords} onChange={this.getInputValue} className="form-control" style={{height: "100px"}} placeholder="Exemple: Javascript, Intégration, Responsive design...(Séparez par une virgule)"/>
                         </div>
                     </div>
 

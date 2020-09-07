@@ -10,29 +10,46 @@ export default class Profile extends Component {
         }
     }
 
-    handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+    componentWillReceiveProps(newProps) {
+        console.log("NewProps:", newProps)
+    }
+
+    shouldComponentUpdate(newProps, newState) {
+        console.log("NewProps:", newProps);
+        console.log("NewState:", newState);
+        return true
+    }
+
+
+    getInputValue = (e) => {
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        this.props.handleChange(fieldName, fieldValue);
     }
 
     render() {
 
+
+        console.log(this.props)
+        console.log(this.props.handleChange)
+        console.log(this.props.name)
         return (
             <div className="render-infos">
-                <form>
+                <form onSubmit={this.props.handleSubmit}>
                     <div className="form-group row">
                         <label className="col-sm-4">Nom</label>
                         <div className="col-sm-8">
-                        <input type="text" name="name" value={this.props.name} className="form-control" id="input-h"/>
+                        <input type="text" name="name" value={this.props.name} className="form-control" id="input-h" onChange={this.getInputValue}/>
                         </div>
                     </div>
 
                     <div className="form-group row">
                         <label className="col-sm-4">Poste souhaité</label>
                         <div className="col-sm-8">
-                        <input type="text" name="job" value={this.props.job} className="form-control" id="input-h"/>
+                        <input type="text" name="job" value={this.props.job} className="form-control" id="input-h" onChange={this.getInputValue}/>
                         </div>
                     </div>
-
+{/* 
                     <div className="form-group row">
                         <div className="col-sm-4">Type de contrat</div>
                         <div className="col-sm-8">
@@ -51,16 +68,16 @@ export default class Profile extends Component {
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="form-group row">
                         <div className="col-sm-4">Pour une durée de</div>
                         <div className="col-sm-8 dp-flex">
-                            <input type="text" name="time" value={this.props.time} className="form-control nb-input" id="input-h" style={{ marginRight: "5px"}} />
+                            <input type="text" name="time" value={this.props.time} className="form-control nb-input" id="input-h" style={{ marginRight: "5px"}} onChange={this.getInputValue}/>
                             <p> mois</p>
                         </div>
                     </div>
-
+{/* 
                     <fieldset className="form-group">
                         <div className="row">
                         <label className="col-sm-4">Disponibilité</label>
@@ -72,16 +89,16 @@ export default class Profile extends Component {
                             </label>
                             </div>
                             <div className="form-check">
-                            <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
+                            <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" onChange={this.handleChange}/>
                             <label className="form-check-label" htmlFor="gridRadios2" style={{ margin: "0 5px"}} >
                                 À partir du
                             </label>
-                            <input type="date" name="date" className="form-check-input"/>
+                            <input type="date" name="date" className="form-check-input" onChange={this.handleChange}/>
                             </div>
             
                         </div>
                         </div>
-                    </fieldset>
+                    </fieldset> */}
 
                     <div className="form-group row">
                         <label className="col-sm-4">Mobilité</label>
@@ -90,7 +107,7 @@ export default class Profile extends Component {
                         </div>
                     </div>
 
-                    <div className="form-group row">
+                    {/* <div className="form-group row">
                         <div className="custom-file">
                             <label className="col-sm-4" htmlFor="customFile">Photo de profil</label>
                             <div className="col-sm-8"><input type="file" className="custom-file-input" id="customFile" /></div>
@@ -109,12 +126,11 @@ export default class Profile extends Component {
                             <label className="col-sm-4" htmlFor="customFile">CV</label>
                             <div className="col-sm-8"><input type="file" className="custom-file-input" id="customFile" /></div>
                         </div>
-                    </div>
+                    </div> */}
                     
-                    {/* <Button submit={this.handleSubmit} /> */}
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn" onSubmit={this.props.handleSubmit}>Valider</button>
+                        <button type="submit" className="btn">Valider</button>
                         </div>
                     </div>
                 </form>
