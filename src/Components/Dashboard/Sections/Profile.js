@@ -27,15 +27,19 @@ export default class Profile extends Component {
         this.props.handleChange(fieldName, fieldValue);
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("triggered");
+        this.props.onSubmit(e);
+    }
+
     render() {
 
-
         console.log(this.props)
-        console.log(this.props.handleChange)
         console.log(this.props.name)
         return (
             <div className="render-infos">
-                <form onSubmit={this.props.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <div className="form-group row">
                         <label className="col-sm-4">Nom</label>
                         <div className="col-sm-8">
@@ -130,7 +134,7 @@ export default class Profile extends Component {
                     
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn">Valider</button>
+                        <button type="submit" value="submit" className="btn">Valider</button>
                         </div>
                     </div>
                 </form>

@@ -30,7 +30,9 @@ export default class Register extends Component {
         axios.post('http://localhost:3050/account/register', {email, password})
             .then(res => {
             console.log("Register submitted");
-            this.props.history.replace("/dashboard");
+            console.log("Your account has been registered. Your id is:", res.data.userID);
+            console.log(res.status);
+            this.props.history.replace("/");
             })
             .catch(err => {
             console.log(err);

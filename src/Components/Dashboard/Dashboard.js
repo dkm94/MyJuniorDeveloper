@@ -7,39 +7,50 @@ import axios from "axios";
 import decode from "jwt-decode";
 
 class Dashboard extends React.Component {
-    constructor(){
+    constructor(){ 
         super();
-        this.state = {
-            clickedSection: "",
-            name: "",
-            job: "",
-            // contract: [],
-            time: "",
-            // availability: "",
-            mobility: [],
-            // operatingSystem: [],
-            keywords: [],
-            myprojects: []
-        }
+        this.state = this.initialState;
+        this.state.clickedSection = ""
+    }
+
+    initialState = {
+        id: "", name: "", job: "", time: "", mobility: [], keywords: [], myprojects: []
     }
 
     componentDidMount() {
         const token = localStorage.getItem("token")
         const user = decode(token);
-        console.log(user.userID, user.dashboardID)
+        console.log(user)
+        const userId = user.userId
+        const dashboardId = user.dashboardId
+        console.log("userId:", userId)
+        console.log("dashboardId:", dashboardId)
+        if(dashboardId) {
+            this.showInfos(dashboardId);
+        }
+        
+        
+    }
+
+    showInfos = (dashboardId) => {
         axios.get('http://localhost:3050/dashboard', {
             params: {
-              id: user.userID
+              id: dashboardId
             }
           })
-        .then(dashboard => {
-          this.setState({ dashboard });
-          console.log(dashboard)
+        .then(res => {
+          if(res.data != null) {
+              this.setState({
+                  name: res.data.name,
+                  job: res.data.job,
+                    time: res.data.time,
+                  mobility: res.data.mobility,
+                  keywords: res.data.keywords,
+                  myprojects: res.data.myprojects
+              });
+          }
         })
         .catch((err)=>console.log(err))
-        .then(function () {
-            console.log(user.dashboardID, "dashbord")
-        });
     }
 
     
@@ -60,28 +71,34 @@ class Dashboard extends React.Component {
         //     keywords: keywordsArray
         // });
         e.preventDefault();
-        console.log("Form Submitted");
+        console.log("TRIGGERED");
 
         const token = localStorage.getItem("token");
         const user = decode(token);
-        console.log(user.userID, user.dashboardID);
+        const dashboardId = user.dashboardId
+        console.log(dashboardId);
 
-        const state = this.state;
-        const name = state.name,
-        job = state.job,
-        mobility = state.mobility,
-        keywords = state.keywords,
-        myprojects = state.myprojects
+        // const state = this.state;
+        // const name = state.name,
+        // job = state.job,
+        // mobility = state.mobility,
+        // keywords = state.keywords,
+        // myprojects = state.myprojects
 
-        axios({
-            method: "put",
-            url: "http://localhost:3050/dashboard/updateDashbord",
-            params: {id: user.userID},
-            data: {name, job, mobility, keywords, myprojects}
-        })
-        .then(data =>
-            this.setState({ dashboard: data })
-            )
+        const data = this.state;
+        console.log(data)
+        const config = {
+            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+          };
+
+        axios.put("http://localhost:3050/dashboard/updateDashbord/" + dashboardId, {data}, {config})
+        // .then(() => {
+        //     this.setState({ name : data })
+        //     console.log("data:", dashboard)
+        // })
+        .then(res => {
+            console.log("success:", res.data.json)
+         })
         .catch(error => {
             if (error.response) {
                 // The request was made and the server responded with a status code
@@ -100,11 +117,11 @@ class Dashboard extends React.Component {
               }
               console.log(error.config);
         })
-        .then(res => {
-            console.log(res.data)
-            console.log(res.status)
-            console.log(res.headers)
-        })
+        // .then(res => {
+        //     console.log(res.data)
+        //     console.log(res.status)
+        //     console.log(res.headers)
+        // })
     }
 
     // splitKeywords = () => {
@@ -116,15 +133,17 @@ class Dashboard extends React.Component {
 
     render(){
 
-    console.log(this.state.clickedSection)
+    const {name, job, time, mobility, keywords, myprojects} = this.state;
+
+    console.log("clicked section:", this.state.clickedSection)
     
     let section
     if (this.state.clickedSection === 2 ){
-        section = <Knowledge myprojects={this.state.myprojects} splitKeywords={this.splitKeywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+        section = <Knowledge myprojects={myprojects} splitKeywords={this.splitKeywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
     } else if(this.state.clickedSection === 3)
-        section = <Projects operatingSystem={this.state.operatingSystem} keywords={this.state.keywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+        section = <Projects keywords={keywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
         else 
-            section = <Profile name={this.state.name} job={this.state.job} contract={this.state.contract} time={this.state.time} availability={this.state.availability} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+            section = <Profile name={name} job={job} time={time} mobility={mobility} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
 
         return(
             <div className="section-dashboard">
