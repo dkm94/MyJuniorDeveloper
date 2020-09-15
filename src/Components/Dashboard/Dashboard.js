@@ -5,41 +5,36 @@ import Knowledge from "./Sections/Knowledge";
 import Projects from "./Sections/Projects";
 import axios from "axios";
 import decode from "jwt-decode";
+// import Link from "react";
 
 class Dashboard extends React.Component {
     constructor(){ 
         super();
-        this.state = this.initialState;
-        this.state.clickedSection = ""
+        this.state = {
+            name: "",
+            job: "",
+            time: "",
+            mobility: [],
+            keywords: [],
+            projects: [],
+            clickedSection: ""
+        }
     }
 
-    initialState = {
-        id: "", name: "", job: "", time: "", mobility: [], keywords: [], myprojects: []
-    }
+    // initialState = {
+    //     name: "", job: "", time: "", mobility: [], keywords: [], myprojects: []
+    // }
 
     componentDidMount() {
-        const token = localStorage.getItem("token")
-        const user = decode(token);
-        console.log(user)
-        const userId = user.userId
-        const dashboardId = user.dashboardId
-        console.log("userId:", userId)
-        console.log("dashboardId:", dashboardId)
-        if(dashboardId) {
-            this.showInfos(dashboardId);
-        }
-        
-        
-    }
-
-    showInfos = (dashboardId) => {
-        axios.get('http://localhost:3050/dashboard', {
-            params: {
-              id: dashboardId
-            }
-          })
+        const token = localStorage.getItem('token')
+        const user = decode(token)
+        const dashboardId = user.dashboardId;
+        const config = {
+            headers: { Authorization: 'Bearer '+ token }
+        };
+        axios.get('http://localhost:3050/dashboard/'+ dashboardId, config)
         .then(res => {
-          if(res.data != null) {
+            console.log(res.data)
               this.setState({
                   name: res.data.name,
                   job: res.data.job,
@@ -48,10 +43,42 @@ class Dashboard extends React.Component {
                   keywords: res.data.keywords,
                   myprojects: res.data.myprojects
               });
-          }
         })
-        .catch((err)=>console.log(err))
+        .catch(err => console.log(err))
     }
+
+    // componentDidMount() {
+    //     const token = localStorage.getItem("token")
+    //     const user = decode(token);
+    //     console.log(user)
+    //     const userId = user.userId
+    //     const dashboardId = user.dashboardId
+    //     console.log("userId:", userId)
+    //     console.log("dashboardId:", dashboardId)
+    //     if(dashboardId) {
+    //         this.showInfos(dashboardId);
+    //     }
+        
+        
+    // }
+
+    // showInfos = (dashboardId) => {
+    //     axios.get('http://localhost:3050/dashboard/'+ dashboardId)
+    //     .then(res => {
+    //       if(res.data != null) {
+    //           this.setState({
+    //               name: res.data.name,
+    //               job: res.data.job,
+    //                 time: res.data.time,
+    //               mobility: res.data.mobility,
+    //               keywords: res.data.keywords,
+    //               myprojects: res.data.myprojects
+    //           });
+    //       } else 
+    //         console.log("err")
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
     
     handleChange = (name, value) => {
@@ -65,39 +92,32 @@ class Dashboard extends React.Component {
     }
 
     // Submit à passer dans les components. + Ajouter la fonction splitKeywords avant
-    handleSubmit = (e) => {
-        // const keywordsArray = this.state.keywords.split(','); 
-        // this.setState({ 
-        //     keywords: keywordsArray
-        // });
-        e.preventDefault();
+    handleSubmit = event => {
+        event.preventDefault();
         console.log("TRIGGERED");
 
         const token = localStorage.getItem("token");
         const user = decode(token);
         const dashboardId = user.dashboardId
-        console.log(dashboardId);
+    
+        const profile = {
+            name: this.state.name,
+            job: this.state.job,
+            time: this.state.time,
+            mobility: this.state.mobility,
+            keywords: this.state.keywords
+        }
 
-        // const state = this.state;
-        // const name = state.name,
-        // job = state.job,
-        // mobility = state.mobility,
-        // keywords = state.keywords,
-        // myprojects = state.myprojects
-
-        const data = this.state;
-        console.log(data)
         const config = {
-            headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+            headers: { Authorization: 'Bearer '+ token }
           };
 
-        axios.put("http://localhost:3050/dashboard/updateDashbord/" + dashboardId, {data}, {config})
-        // .then(() => {
-        //     this.setState({ name : data })
-        //     console.log("data:", dashboard)
-        // })
+        axios.put("http://localhost:3050/dashboard/updateDashboard/" + dashboardId, profile , config)
         .then(res => {
-            console.log("success:", res.data.json)
+            console.log("success:", res.status)
+            console.log(res.data)
+            this.setState(this.state)
+            // window.location.reload(false);
          })
         .catch(error => {
             if (error.response) {
@@ -117,33 +137,33 @@ class Dashboard extends React.Component {
               }
               console.log(error.config);
         })
-        // .then(res => {
-        //     console.log(res.data)
-        //     console.log(res.status)
-        //     console.log(res.headers)
-        // })
+  
     }
 
-    // splitKeywords = () => {
-    //     const keywordsArray = this.state.keywords.split(','); 
-    //     this.setState({ 
-    //         keywords: keywordsArray
-    //     }); 
-    // }
+    splitKeywords = () => {
+        const keywordsArray = this.state.keywords.split(','); 
+        this.setState({ 
+            keywords: keywordsArray
+        }); 
+    }
 
     render(){
 
-    const {name, job, time, mobility, keywords, myprojects} = this.state;
+    const {name, job, time, mobility, keywords} = this.state;
 
     console.log("clicked section:", this.state.clickedSection)
     
     let section
     if (this.state.clickedSection === 2 ){
-        section = <Knowledge myprojects={myprojects} splitKeywords={this.splitKeywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+        section = <Knowledge keywords={keywords} handleSplit={this.splitKeywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
     } else if(this.state.clickedSection === 3)
-        section = <Projects keywords={keywords} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+        section = <Projects onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
         else 
             section = <Profile name={name} job={job} time={time} mobility={mobility} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+
+            // const token = localStorage.getItem("token");
+            // const user = decode(token);
+            // const dashboardId = user.dashboardId
 
         return(
             <div className="section-dashboard">
@@ -161,6 +181,7 @@ class Dashboard extends React.Component {
                             <li className="width-3 align-x" value="3">Mes Projets</li>
                         </ul>
                     </div>
+                    {/* <Link to={`/profile/${dashboardId}`}>OK</Link> */}
 
                         {section}
                 

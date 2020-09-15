@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Multiselect from "./Multiselect";
-// import Button from "../../SectionButton";
 
 export default class Profile extends Component {
     constructor(props){
@@ -8,10 +7,6 @@ export default class Profile extends Component {
         this.state = {
 
         }
-    }
-
-    componentWillReceiveProps(newProps) {
-        console.log("NewProps:", newProps)
     }
 
     shouldComponentUpdate(newProps, newState) {
@@ -134,7 +129,7 @@ export default class Profile extends Component {
                     
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" value="submit" className="btn">Valider</button>
+                        <button type="submit" value="Submit" className="btn">Valider</button>
                         </div>
                     </div>
                 </form>

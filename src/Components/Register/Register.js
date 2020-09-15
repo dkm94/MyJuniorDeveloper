@@ -4,6 +4,7 @@ import "./Register.css";
 import ordinateur from "../../img/business-2846221_1920.jpg";
 import NavLoggedin from '../Nav-loggedin';
 import axios from "axios";
+import decode from "jwt-decode";
 
 
 export default class Register extends Component {
@@ -29,10 +30,17 @@ export default class Register extends Component {
 
         axios.post('http://localhost:3050/account/register', {email, password})
             .then(res => {
-            console.log("Register submitted");
-            console.log("Your account has been registered. Your id is:", res.data.userID);
-            console.log(res.status);
-            this.props.history.replace("/");
+            if (res.status === 200) {
+                console.log(res.status)
+                console.log("Register submitted");
+                localStorage.setItem("token", res.data.token);
+                const token = localStorage.getItem("token");
+                const user = decode(token);
+                console.log(user)
+                const dashboardId = user.dashboardId;
+                console.log("Your account has been registered. Dashboard n°", dashboardId);
+                this.props.history.push("/dashboard/"+ dashboardId);
+            }
             })
             .catch(err => {
             console.log(err);

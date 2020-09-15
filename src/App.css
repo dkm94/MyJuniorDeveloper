@@ -301,6 +301,13 @@ body {
   min-height: 500px;
   background: crimson;
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-profile-btn {
+  width: fit-content;
+  align-self: flex-end;
 }
 
 .db-menu {

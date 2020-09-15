@@ -2,24 +2,15 @@ import React from 'react';
 import Header from "./Home-header";
 import HomeForm from "./Home-forms";
 import NavLoggedin from "./Nav-loggedin";
-class Home extends React.Component {
-    constructor(){
-        super();
-        this.state = {
 
-        }
-    }
-
-    render(){
-
-        return(
+export default function Home() {
+    return (
+        <div>
             <div className="home">
                 <NavLoggedin />
                 <Header />
                 <HomeForm />
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default Home

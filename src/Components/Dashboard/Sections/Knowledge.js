@@ -5,14 +5,8 @@ class Knowledge extends Component {
     constructor(props){
         super(props)
         this.state = {
-            keywords: "",
-            keywordsArray: [],
-            system: []
+           
         }
-    }
-
-    componentWillReceiveProps(newProps) {
-        console.log("NewProps:", newProps)
     }
 
     shouldComponentUpdate(newProps, newState) {
@@ -27,20 +21,24 @@ class Knowledge extends Component {
         this.props.handleChange(fieldName, fieldValue);
     }
 
-    checkedSystem = (e) => {
-        this.setState({
-            [ e.target.name]: e.target.value
-        })
-        console.log(this.state.system)
+    splitWords = (e) => {
+        const keywords = e.target.value
+        this.props.handleSplit(keywords)
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("triggered");
+        this.props.onSubmit(e);
     }
     
     render() {
-        //rendu keywords
+        // rendu keywords
         // const tools = this.state.keywordsArray.map(el => <li>{el}</li>)
 
         return (
             <div className="render-infos">
-               <form>
+               <form onSubmit={this.handleSubmit}>
                     {/* <div className="form-group row">
                         <div className="col-sm-4"><label>Environnement de travail</label></div>
                         <div className="col-sm-8">
@@ -72,7 +70,7 @@ class Knowledge extends Component {
                     {/* <Button submit={this.handleSubmit} /> */}
                     <div className="form-group row flex-end">
                         <div className="col-sm-8 flex-end">
-                        <button type="submit" className="btn" onSubmit={this.props.handleSubmit}>Valider</button>
+                        <button type="submit" className="btn" onClick={this.splitWords}>Valider</button>
                         </div>
                     </div>
                </form>
