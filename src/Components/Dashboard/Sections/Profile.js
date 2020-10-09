@@ -30,8 +30,8 @@ export default class Profile extends Component {
 
     render() {
 
-        console.log(this.props)
-        console.log(this.props.name)
+        // console.log(this.props)
+        // console.log(this.props.name)
         return (
             <div className="render-infos">
                 <form onSubmit={this.handleSubmit}>
@@ -46,6 +46,13 @@ export default class Profile extends Component {
                         <label className="col-sm-4">Poste souhaité</label>
                         <div className="col-sm-8">
                         <input type="text" name="job" value={this.props.job} className="form-control" id="input-h" onChange={this.getInputValue}/>
+                        </div>
+                    </div>
+
+                    <div className="form-group row">
+                        <label className="col-sm-4">Introduction</label>
+                        <div className="col-sm-8">
+                        <textarea name="bio" value={this.props.bio} onChange={this.getInputValue} className="form-control" style={{height: "100px"}} placeholder="Présentez-vous avec un court texte ou une citation qui vous correspond, par exemple"/>
                         </div>
                     </div>
 {/* 

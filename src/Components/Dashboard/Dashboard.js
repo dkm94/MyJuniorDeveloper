@@ -2,7 +2,7 @@ import React from 'react';
 import NavLoggedin from "../Nav-loggedin";
 import Profile from "./Sections/Profile";
 import Knowledge from "./Sections/Knowledge";
-import Projects from "./Sections/Projects";
+import Projects from "./Sections/projects/Projects";
 import axios from "axios";
 import decode from "jwt-decode";
 // import Link from "react";
@@ -13,6 +13,7 @@ class Dashboard extends React.Component {
         this.state = {
             name: "",
             job: "",
+            bio: "",
             time: "",
             mobility: [],
             keywords: [],
@@ -38,6 +39,7 @@ class Dashboard extends React.Component {
               this.setState({
                   name: res.data.name,
                   job: res.data.job,
+                  bio: res.data.bio,
                     time: res.data.time,
                   mobility: res.data.mobility,
                   keywords: res.data.keywords,
@@ -103,6 +105,7 @@ class Dashboard extends React.Component {
         const profile = {
             name: this.state.name,
             job: this.state.job,
+            bio: this.state.bio,
             time: this.state.time,
             mobility: this.state.mobility,
             keywords: this.state.keywords
@@ -149,7 +152,7 @@ class Dashboard extends React.Component {
 
     render(){
 
-    const {name, job, time, mobility, keywords} = this.state;
+    const {name, job, bio, time, mobility, keywords} = this.state;
 
     console.log("clicked section:", this.state.clickedSection)
     
@@ -159,7 +162,7 @@ class Dashboard extends React.Component {
     } else if(this.state.clickedSection === 3)
         section = <Projects onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
         else 
-            section = <Profile name={name} job={job} time={time} mobility={mobility} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+            section = <Profile name={name} job={job} bio={bio} time={time} mobility={mobility} onSubmit={this.handleSubmit} handleChange={this.handleChange}/>
 
             // const token = localStorage.getItem("token");
             // const user = decode(token);

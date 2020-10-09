@@ -46,6 +46,19 @@ body {
   height: 30px;
 }
 
+.menu-btn {
+  display: flex;
+  align-items: center;
+}
+
+.open>.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu {
+  right: 5px;
+}
 /******** HEADER ****************/
 
 .header {

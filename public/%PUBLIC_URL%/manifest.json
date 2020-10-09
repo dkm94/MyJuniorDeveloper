@@ -1,0 +1,7 @@
+{
+    "name": "MyJuniorDeveloper",
+    "short_name": "MJD",
+    "description": "Cvthèque pour développeurs juniors",
+    "display": "browser",
+    "scope": "/app/"
+    }

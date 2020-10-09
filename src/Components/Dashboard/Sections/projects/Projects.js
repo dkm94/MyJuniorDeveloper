@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import decode from "jwt-decode";
+import "./Projects.css";
 
 class Projects extends Component {
     constructor(){
