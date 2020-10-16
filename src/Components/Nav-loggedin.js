@@ -30,15 +30,15 @@ class NavLoggedin extends Component {
         const token = localStorage.getItem("token");
         let menubar;
         if(token === null) {
-            menubar =  <button className="btn login-btn" style={{ backgroundColor: "inherit"}} onClick={this.showModal}>
+            menubar =  <div className="btn login-btn" style={{ backgroundColor: "inherit"}} onClick={this.showModal}>
             <img alt="connexion" src={Icon} id="login-icon"/>
             <span className="span-login">CONNEXION</span>
-        </button>
+        </div>
         } else 
-            menubar =  <button className="btn login-btn menu-btn" style={{ backgroundColor: "inherit"}}>
+            menubar =  <div className="btn login-btn menu-btn" style={{ backgroundColor: "inherit"}}>
             <img alt="connexion" src={Icon} id="login-icon"/>
             <Menubar />
-        </button>
+        </div>
         return (
             <div className="header-nav container-fluid">
                 <section className="logo-login">

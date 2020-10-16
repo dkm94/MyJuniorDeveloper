@@ -1,16 +1,77 @@
 import React from 'react';
 import NavLoggedin from "../Nav-loggedin";
+import axios from "axios";
+import decode from "jwt-decode";
 
 class Profile extends React.Component {
+    constructor(){ 
+        super();
+        this.state = {
+            name: "",
+            job: "",
+            bio: "",
+            time: "",
+            mobility: [],
+            keywords: [],
+            projects: [],
+            title: "",
+            description: "",
+            media: ""
+        }
+    }
+
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        const user = decode(token)
+        const dashboardId = user.dashboardId;
+        const config = {
+            headers: { Authorization: 'Bearer '+ token }
+        };
+        axios.get('http://localhost:3050/dashboard/'+ dashboardId, config)
+        .then(res => {
+            console.log(res.data)
+              this.setState({
+                  name: res.data.name,
+                  job: res.data.job,
+                  bio: res.data.bio,
+                    time: res.data.time,
+                  mobility: res.data.mobility,
+                  keywords: res.data.keywords,
+                  projects: res.data.myprojectsID
+              });
+        })
+        .catch(err => console.log(err))
+
+        axios.get('http://localhost:3050/dashboard/projects/'+ dashboardId, config)
+        .then(res => {
+            return res.data
+            })
+        .then(projects => {
+            this.setState({ projects });
+            console.log(projects)
+        })
+        .catch(err => console.log(err))
+    }
+
+    
+    handleChange = (name, value) => {
+        this.setState({
+            [name]: value
+        })
+    }
+
     render() {
+
+        let {name, job, bio, time, mobility, keywords, projects} = this.state;
+
         return (
             <div className="section-profile">
                 <NavLoggedin />
                 <div className="profile">
 
-                <section className="profile-header container-fluid">
+                <section className="profile-header container-fluid" onChange={this.handleChange}>
                     <div className="name col-sm-4 align-x">
-                        <p>Nom Prénom</p>
+                        <p>{name = null ? "Nom Prénom" : name}</p>
                     </div>
                     <div className="div-photo col-sm-4 align-x">
                         <div className="profile-picture">
@@ -18,7 +79,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                     <div className="job col-sm-4 align-x">
-                        <p>Titre du/des poste(s) visé(s)</p>
+                        <p>{job = null ? "Titre du/des poste(s) visé(s)" : job}</p>
                     </div>
                 </section>    
 
@@ -31,13 +92,12 @@ class Profile extends React.Component {
                         <ul className="avb-list ul-mg">
                             <li>Recherche </li>
                             <li>À partir du</li>
-                            <li>Pour une durée de</li>
-                            <li>Mobilité: </li>
+                            <li>Pour une durée de</li><p>{time = null ? "inconnue" : time + " mois"}</p>
+                            <li>Mobilité: </li><p>{mobility = null | undefined ? "inconnue" : mobility}</p>
                         </ul>
                     </div>
                     <div className="introduction">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
-                        {/* <Description /> */}
+                        <p>{bio = null ? "Présentez-vous" : bio}</p>
                     </div>
                 </section>
 
@@ -49,17 +109,19 @@ class Profile extends React.Component {
                             </div>
                             {/* <EnvironnementDeTravail /> */}
                         </div>
-                        <div className="tools">
-                            <div className="tools-p red-udl">
-                                <p>Technos et Outils</p>
-                            </div>
-                            {/* {tools} */}
-                        </div>
                         <div className="key-words">
                             <div className="keywords-p red-udl">
-                                <p>Mots-clés</p>
+                                <p>Technos et Outils</p>
                             </div>
-                            {/* <Keywords /> */}
+                            <ul>
+                                {keywords.map(
+                                    (keywords, i) => {
+                                        return <div key={i}>
+                                            <li>{keywords}</li>
+                                        </div>
+                                    }
+                                )}
+                            </ul>
                         </div>
                     </div>
 
@@ -73,8 +135,17 @@ class Profile extends React.Component {
                         <div className="projects">
                             <div className="projects-p red-udl">
                                 <p>Projets</p>
-                                {/* <Projects /> */}
                             </div>
+                            <ul>
+                                {projects.map((project, i) => {
+                                    console.log(projects)
+                                    return <li className="projectUser" key={i} data-id={project._id}>
+                                        <h1>{project.title}</h1>
+                                        <p>{project.description}</p>
+                                        <img src={project.media} alt="projet"></img>
+                                    </li>
+                                })}
+                            </ul>
                         </div>
                     </div>
                 </section>

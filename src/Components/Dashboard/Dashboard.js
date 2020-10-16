@@ -5,7 +5,6 @@ import Knowledge from "./Sections/Knowledge";
 import Projects from "./Sections/projects/Projects";
 import axios from "axios";
 import decode from "jwt-decode";
-// import Link from "react";
 
 class Dashboard extends React.Component {
     constructor(){ 

@@ -1,14 +1,18 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
-// import decode from "jwt-decode";
+import { Link, useHistory } from "react-router-dom";
+import decode from "jwt-decode";
 
 export default function Menubar() {
 
-    // const id = (props) => {
-    //     localStorage.getItem("token");
-    //     const token = localStorage.getItem('token')
-    //     const user = decode(token)
-    // }
+
+    localStorage.getItem("token");
+    const token = localStorage.getItem('token')
+    const user = decode(token)
+    console.log("user:", user)
+    const dashboardId = user.dashboardId
+    console.log("dashboardId:", dashboardId)
+    const profileUrl = "/profile/" + dashboardId;
+    const dashboardUrl = "/dashboard/" + dashboardId;
 
     
     let history = useHistory()
@@ -22,13 +26,13 @@ export default function Menubar() {
 
     return (
         <div className="menubar dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "inherit"}}>
+            <button className="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ backgroundColor: "inherit"}}>
             MON COMPTE
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            {/* <Link to={`/dashboard/${id}`} class="dropdown-item" type="button">Dashboard</Link> */}
-            {/* <Link to={`/profile/${id}`} class="dropdown-item" type="button">Voir mon profil</Link> */}
-            <button class="dropdown-item" type="button" onClick={LogOut} >Déconnexion</button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <Link to={dashboardUrl} className="dropdown-item" >Dashboard</Link>
+            <Link to={profileUrl} className="dropdown-item" >Voir mon profil</Link>
+            <button className="dropdown-item" type="button" onClick={LogOut} >Déconnexion</button>
             </div>
         </div>
     )
