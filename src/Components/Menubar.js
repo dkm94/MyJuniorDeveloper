@@ -32,6 +32,7 @@ export default function Menubar() {
             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
             <Link to={dashboardUrl} className="dropdown-item" >Dashboard</Link>
             <Link to={profileUrl} className="dropdown-item" >Voir mon profil</Link>
+            <Link to="/search">Rechercher</Link>
             <button className="dropdown-item" type="button" onClick={LogOut} >Déconnexion</button>
             </div>
         </div>

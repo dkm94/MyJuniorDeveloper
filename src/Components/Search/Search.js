@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import groupeimg from "../../img/people-2557396_1920.jpg";
 import Multiselect from "../Dashboard/Sections/Multiselect";
 import "./Search.css"
-import NavLoggedin from '../Nav-loggedin';
 
 export default class Search extends Component {
     render() {
         return (
             <div className="section-search">
-                <NavLoggedin />
                 <div className="searchpage container">
                 <div className="row">
                     <div className="col-sm-3" style={{ minHeight: "15rem", background:"lightgrey"}}>

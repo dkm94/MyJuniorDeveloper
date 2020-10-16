@@ -1,7 +1,7 @@
 /* .home {
   height: fit-content;
 } */html {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 body {
@@ -161,12 +161,6 @@ body {
 }
 
 /* PROFILE */
-
-.profile-header {
-  min-height: 300px;
-  background: lightgray;
-  display: flex;
-}
 
 /* .profile-picture {
   position: relative;

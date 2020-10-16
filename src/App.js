@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from "./Components/Home";
-import Profile from "./Components/Profile/Profile";
-import Dashboard from "./Components/Dashboard/Dashboard";
-import Search from "./Components/Search/Search";
+import Profile from "./Components/Profile-page";
+import Dashboard from "./Components/Dashboard-page";
+import Search from "./Components/Search-page";
 import Register from "./Components/Register/Register";
 
 function App() {

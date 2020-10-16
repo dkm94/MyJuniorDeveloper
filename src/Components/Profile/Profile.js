@@ -1,7 +1,7 @@
 import React from 'react';
-import NavLoggedin from "../Nav-loggedin";
 import axios from "axios";
 import decode from "jwt-decode";
+import "./Profile.css";
 
 class Profile extends React.Component {
     constructor(){ 
@@ -65,25 +65,20 @@ class Profile extends React.Component {
         let {name, job, bio, time, mobility, keywords, projects} = this.state;
 
         return (
-            <div className="section-profile">
-                <NavLoggedin />
-                <div className="profile">
+            <div className="section-profile align-x">
+    
+                <section className="profile-card container align-x" onChange={this.handleChange}>
+                    <div className="card-picture container-fluid">
 
-                <section className="profile-header container-fluid" onChange={this.handleChange}>
-                    <div className="name col-sm-4 align-x">
-                        <p>{name = null ? "Nom Prénom" : name}</p>
                     </div>
-                    <div className="div-photo col-sm-4 align-x">
-                        <div className="profile-picture">
-                            <img alt="pp"></img>
-                        </div>
+                    <div className="card-text container-fluid">
+                        <h1>{name = null ? "Non défini" : name}</h1>
+                        <h2>{job = null ? "Non défini" : job}</h2>
+                        <p>{bio = null ? "Non défini" : bio}</p> 
                     </div>
-                    <div className="job col-sm-4 align-x">
-                        <p>{job = null ? "Titre du/des poste(s) visé(s)" : job}</p>
-                    </div>
-                </section>    
+                </section>
 
-                <section className="presentation container">
+                {/* <section className="presentation container">
                     <div id="profile-btns">
                         <button className="btn">Contacter</button>
                         <button className="btn">Télécharger CV</button>
@@ -99,15 +94,15 @@ class Profile extends React.Component {
                     <div className="introduction">
                         <p>{bio = null ? "Présentez-vous" : bio}</p>
                     </div>
-                </section>
+                </section> */}
 
-                <section className="resume container">
+                {/* <section className="resume container">
                     <div className="resume-1 col-sm-4">
                         <div className="work-env">
                             <div className="workenv-p red-udl">
                                 <p>Environnement de travail</p>
                             </div>
-                            {/* <EnvironnementDeTravail /> */}
+                        
                         </div>
                         <div className="key-words">
                             <div className="keywords-p red-udl">
@@ -129,7 +124,7 @@ class Profile extends React.Component {
                         <div className="skills">
                             <div className="skills-p red-udl">
                                 <p>Compétences</p>
-                                {/* <Skills /> */}
+                        
                             </div>
                         </div>
                         <div className="projects">
@@ -148,8 +143,7 @@ class Profile extends React.Component {
                             </ul>
                         </div>
                     </div>
-                </section>
-            </div>
+                </section> */}
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLoggedin from "../Nav-loggedin";
+// import NavLoggedin from "../Nav-loggedin";
 import Profile from "./Sections/Profile";
 import Knowledge from "./Sections/Knowledge";
 import Projects from "./Sections/projects/Projects";
@@ -169,7 +169,7 @@ class Dashboard extends React.Component {
 
         return(
             <div className="section-dashboard">
-                <NavLoggedin />
+                {/* <NavLoggedin /> */}
                 <div className="dashboard">
                 <div className="container-fluid db-title align-x">
                     <h1>Votre Dashboard</h1>
