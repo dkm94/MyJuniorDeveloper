@@ -12,10 +12,11 @@ body {
 
 .header-nav {
   position: relative;
+  /* border-bottom: 1px solid lightgrey; */
 }
 
 .logo-login {
-  height: 85px;
+  height: 60px;
   /* background-color: aquamarine; */
   display: flex;
   justify-content: space-between;

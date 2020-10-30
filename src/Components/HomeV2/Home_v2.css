@@ -1,0 +1,72 @@
+h1 {
+    font-size:3vw;
+}
+
+.intro {
+    font-size:2.5vw;
+}
+
+.title {
+    font-size: 4vw;
+    margin-top: 0;
+}
+
+p {
+    font-size:1.3vw;
+}
+
+.logo {
+    height: 80px;
+}
+
+.logo img {
+    object-fit: contain;
+    width: inherit;
+    height: inherit;
+}
+
+.logo-section {
+    justify-content: flex-end;
+}
+
+.mjd-section {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px 50px;
+}
+
+.title-side {
+    position: relative;
+    height: 100vh;
+    background-image: url(../../img/home-img.gif);
+    background-size: cover;
+}
+
+.recruteur-dev-section {
+    /* width: fit-content; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0px 50px;
+}
+
+.recruiter-btn {
+    background: black;
+    color: white;
+}
+
+.dev-side {
+    position: relative;
+    color: whitesmoke;
+    background-color: darkred;
+    height: 100vh;
+}
+
+.dev-home {
+    text-align: end;
+}
+
+.dev-btn {
+    color: black;
+}

@@ -1,0 +1,27 @@
+.title {
+    margin-bottom: 45px;
+}
+
+.title h1 {
+    font-size: 6vw;
+}
+
+.homeV3 {
+    background-image: url("../../img/redsmoke.jpg");
+    background-size: contain ;
+    background-repeat: round;
+    height: 100vh;
+}
+
+.home {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    transform: translateY(-50%);
+}
+
+.menubar {
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 100px;
+}

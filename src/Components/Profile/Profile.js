@@ -1,4 +1,5 @@
 import React from 'react';
+import Slideshow from "../Slidecard/Slidecard";
 import axios from "axios";
 import decode from "jwt-decode";
 import "./Profile.css";
@@ -69,13 +70,8 @@ class Profile extends React.Component {
     
                 <section className="profile-card container align-x" onChange={this.handleChange}>
                     <div className="card-picture container-fluid">
-
                     </div>
-                    <div className="card-text container-fluid">
-                        <h1>{name = null ? "Non défini" : name}</h1>
-                        <h2>{job = null ? "Non défini" : job}</h2>
-                        <p>{bio = null ? "Non défini" : bio}</p> 
-                    </div>
+                    <Slideshow name={name} job={job} bio={bio} time={time} mobility={mobility} keywords={keywords} projects={projects} />
                 </section>
 
                 {/* <section className="presentation container">

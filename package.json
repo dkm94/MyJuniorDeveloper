@@ -18,12 +18,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "react-slideshow-image": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-jest-diff": "^1.0.2",
+    "dirty-chai": "^2.0.1"
   }
 }
