@@ -8,12 +8,12 @@ body {
   font-size: 0.9rem;
 }
 
-/* HOME */
-
+/* NAVIGATION */
 .header-nav {
-  position: relative;
-  /* border-bottom: 1px solid lightgrey; */
+  height: 10vh;
 }
+
+/* HOME */
 
 .logo-login {
   height: 60px;
@@ -24,14 +24,6 @@ body {
 
 .logo-login button {
   /* margin-right: 60px; */
-}
-
-.logo {
-  /* margin-left: 60px; */
-}
-
-.logo-login img {
-  height: inherit;
 }
 
 /* .login-btn {
@@ -144,7 +136,7 @@ body {
 
 .login-modal {
   position: absolute;
-  top: 270%;
+  top: 30%;
   left: 35%;
   background-color: white;
   border: 1px solid #ccc;

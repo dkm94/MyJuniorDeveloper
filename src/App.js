@@ -9,12 +9,23 @@ import Dashboard from "./Components/Dashboard-page";
 import Search from "./Components/Search-page";
 import Register from "./Components/Register/Register";
 import Slide from "./Components/Sliderpage";
+import LoggedIn from "./Components/HomeV3/NavLoggedin";
+import LoggedOut from "./Components/HomeV3/NavLoggedout";
 
 function App() {
+
+  const token = localStorage.getItem("token");
+    let navigation;
+    if(token === null) {
+        navigation =  <LoggedOut />
+    } else 
+        navigation =  <LoggedIn />
+
   return (
 
     <div className="App">
       <Router>
+        {navigation}
         <Switch>
           <Route exact path="/" component={HomeV3} />
           <Route path="/profile/:id" component={Profile} />

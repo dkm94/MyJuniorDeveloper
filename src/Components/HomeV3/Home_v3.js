@@ -1,12 +1,11 @@
 import React from 'react';
 import "./Home_v3.css";
-import Nav from "./Nav_v3";
 
 export default function Home_v3() {
+
     return (
         <div className="homeV3 container-fluid">
             <div className="container" style={{ position: "relative", height: "100%" }}>
-                <Nav />
                 <div className="home container">
                     <div className="introduction">
                         <div className="title">

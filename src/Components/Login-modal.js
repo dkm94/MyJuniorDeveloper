@@ -17,65 +17,33 @@ class LoginModal extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-//     handleSubmit = (e) => {
-//         e.preventDefault();
-//         console.log("Register Submitted");
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Register Submitted");
 
-//         const email = this.state.email,
-//         password = this.state.password;
+        const email = this.state.email,
+        password = this.state.password;     
 
-//         if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
-//             console.log(false)
-//         }
-//         const token = localStorage.getItem("token")
-//         const user = decode(token);
-//         const dashboardId = user.dashboardID
-//         console.log(dashboardId)
-
-//         axios.post('http://localhost:3050/account/login', {email, password})
-//             .then(res => {
-//                 if (res.status === 200) {
-//                     console.log("Registering OK", res.data);
-//                     localStorage.setItem("token", res.data.token);
-//                     this.props.history.push('/dashboard/', dashboardId);
-//                 } else
-//                     return res.status(400).json("Identifiants invalides.")
-//             })
-//             .catch(err => {
-//             console.log("err:", err);
-//             })
-
-// }
-
-handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Register Submitted");
-
-    const email = this.state.email,
-    password = this.state.password;
-
-    
-
-    axios.post('http://localhost:3050/account/login', {email, password})
-        .then(res => {
-            if (res.status === 200) {
-                console.log("Registering OK", res.data);
-                localStorage.setItem("token", res.data.token);
-                const token = localStorage.getItem("token");
-                const user = decode(token);
-                console.log(user)
-                const dashboardId = user.dashboardId;
-                console.log(dashboardId)
-                
-                this.props.history.push('/dashboard/'+ dashboardId);
-            } else
-                return res.status(400).json("Identifiants invalides.")
-        .catch(err => {
-        console.log(err);
-        });
-})
-}
-
+        axios.post('http://localhost:3050/account/login', {email, password})
+            .then(res => {
+                console.log(res)
+                if (res.status === 200) {
+                    console.log("Registering OK", res.data);
+                    localStorage.setItem("token", res.data.token);
+                    const token = localStorage.getItem("token");
+                    const user = decode(token);
+                    console.log(user)
+                    const dashboardId = user.dashboardId;
+                    console.log(dashboardId)
+                    
+                    this.props.history.push('/dashboard/'+ dashboardId);
+                } else
+                    return res.status(400).json("Identifiants invalides.")
+            .catch(err => {
+            console.log(err);
+            });
+        })
+    }
 
 
     render() {

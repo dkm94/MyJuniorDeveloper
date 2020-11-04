@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Nav from "../Components/Nav-loggedin";
 import Profile from "../Components/Profile/Profile";
 
 export default function ProfilePage() {
@@ -11,8 +10,7 @@ export default function ProfilePage() {
     //if token "Mon Profil" sinon Profil de user.name
 
     return (
-        <div>
-            <Nav />
+        <div className="container-fluid">
             <Profile />
         </div>
     )

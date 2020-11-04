@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Nav from "./Nav-loggedin";
 import Search from "./Search/Search";
 
 export default function SearchPage() {
@@ -9,8 +8,7 @@ export default function SearchPage() {
     })
 
     return (
-        <div>
-            <Nav />
+        <div className="container-fluid">
             <Search />
         </div>
     )
